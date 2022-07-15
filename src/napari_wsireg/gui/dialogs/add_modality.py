@@ -57,7 +57,7 @@ class AddModality(QDialog):
         self._all_entities = all_entities
         self._mode = mode
         tag_name = Path(file_path).name
-        self.tag.setText(tag_name[0:tag_name.index('.'))
+        self.tag.setText(tag_name[0:tag_name.index('.')])
         self._original_tag = tag
 
         image_fp_label = QLineEdit()
