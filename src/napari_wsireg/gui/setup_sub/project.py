@@ -9,6 +9,7 @@ from qtpy.QtWidgets import (
     QComboBox,
 )
 from superqt import QCollapsible
+import os
 
 
 class ProjectControl(QWidget):
@@ -21,9 +22,9 @@ class ProjectControl(QWidget):
 
         self.project_name_entry = QLineEdit()
         self.project_name_entry.setText("wsireg-output")
-        self.output_dir_select = QPushButton("Select output dir")
+        self.output_dir_select = QPushButton("*Select output dir")
         self.output_dir_entry = QLineEdit()
-        self.output_dir_entry.setReadOnly(True)
+        self.output_dir_entry.setText(os.getcwd())
         self.output_dir_entry.setStyleSheet(
             "background-color:rgb(38, 41, 48); border:0px"
         )
