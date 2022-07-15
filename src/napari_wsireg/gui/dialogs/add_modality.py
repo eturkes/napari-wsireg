@@ -67,7 +67,7 @@ class AddModality(QDialog):
         image_fp_label.setCursorPosition(0)
 
         form_layout.addRow("Image filepath", image_fp_label)
-        form_layout.addRow("Image tag (name)", self.tag)
+        form_layout.addRow("*Image tag (name)", self.tag)
         form_layout.addRow("Set image pixel spacing (μm)", self.spacing)
         if mode == "load":
             tn_label = QLabel("Read thumbnail?")
