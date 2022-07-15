@@ -1,4 +1,5 @@
 # napari-wsireg
+#### *This project is a custom fork of [https://github.com/NHPatterson/napari-wsireg](https://github.com/NHPatterson/napari-wsireg)*
 
 ![Alt text](https://github.com/NHPatterson/napari-wsireg/blob/main/src/napari_wsireg/gui/resources/wsireg-logo-light.svg?raw=true "wsireg")
 
