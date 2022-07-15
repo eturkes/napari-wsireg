@@ -98,7 +98,7 @@ class PreprocessingControl(QGroupBox):
         self.channel_list.setMaximumHeight(100)
 
         int_box_layout.addLayout(int_left_top_layout)
-        channel_header = QLabel("<b>Channels: Use / Name</b>")
+        channel_header = QLabel("<b>*Channels: Use / Name</b>")
         int_box_layout.addWidget(channel_header)
         int_box_layout.addWidget(self.channel_list)
         int_right_layout.layout().addRow(
@@ -169,20 +169,20 @@ class PreprocessingControl(QGroupBox):
         if check_status and channel_names:
             for channel, status in zip(channel_names, check_status):
                 ch_item = QChannelItem(channel)
-                status_flag = 2 if status else 0
+                status_flag = 0 if status else 2
                 ch_item.setCheckState(status_flag)
                 self.channel_list.addItem(ch_item)
         elif check_status:
             channel_names = [f"C{str(i).zfill(2)}" for i in range(len(check_status))]
             for channel, status in zip(channel_names, check_status):
                 ch_item = QChannelItem(channel)
-                status_flag = 2 if status else 0
+                status_flag = 0 if status else 2
                 ch_item.setCheckState(status_flag)
                 self.channel_list.addItem(ch_item)
         else:
             for channel in channel_names:
                 ch_item = QChannelItem(channel)
-                ch_item.setCheckState(2)
+                ch_item.setCheckState(0)
                 self.channel_list.addItem(ch_item)
 
     def _ch_indices_to_status(self, channel_names: List[str], ch_indices: List[int]):
