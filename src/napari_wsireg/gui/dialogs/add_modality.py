@@ -45,9 +45,9 @@ class AddModality(QDialog):
         self.spacing.setValidator(QDoubleValidator())
 
         if not spacing:
-            self.spacing.setText("1.0")
+            self.spacing.setText("0.65")
         else:
-            self.spacing.setText(str(round(spacing, 5)))
+            self.spacing.setText("0.65")
             self.spacing.setStyleSheet("color:#00D100")
 
         self.image_data = image_data
@@ -68,7 +68,7 @@ class AddModality(QDialog):
 
         form_layout.addRow("Image filepath", image_fp_label)
         form_layout.addRow("*Image tag (name)", self.tag)
-        form_layout.addRow("Set image pixel spacing (μm)", self.spacing)
+        form_layout.addRow("*Set image pixel spacing (μm)", self.spacing)
         if mode == "load":
             tn_label = QLabel("Read thumbnail?")
             self.use_thumbnail = QCheckBox()
@@ -126,7 +126,7 @@ class AddModality(QDialog):
             # but the if statement prevents us from ever getting here
             # if there is a None
             spacing = image_data.pixel_spacing[0]  # type: ignore
-            self.spacing.setText(str(round(spacing, 5)))
+            self.spacing.setText("0.65")
             self.spacing.setStyleSheet("color:#00D100")
             self._set_default_prepro()
 
@@ -180,5 +180,5 @@ class AddModality(QDialog):
     def _pull_attach_spacing(self) -> None:
         current_attach_mod = self.attachment_combo.currentText()
         spacing = self.image_spacings[current_attach_mod]
-        self.spacing.setText(str(round(spacing, 5)))
+        self.spacing.setText("0.65")
         self.spacing.setStyleSheet("color:#00D100")
