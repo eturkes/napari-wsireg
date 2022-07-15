@@ -56,10 +56,7 @@ class AddModality(QDialog):
         self.tag = QLineEdit()
         self._all_entities = all_entities
         self._mode = mode
-        if tag:
-            self.tag.setText(tag)
-            self.tag.setReadOnly(True)
-            self.spacing.setReadOnly(True)
+        self.tag.setText(Path(file_path).name)
         self._original_tag = tag
 
         image_fp_label = QLineEdit()
