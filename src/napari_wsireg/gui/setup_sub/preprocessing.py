@@ -171,18 +171,24 @@ class PreprocessingControl(QGroupBox):
                 ch_item = QChannelItem(channel)
                 status_flag = 0 if status else 2
                 ch_item.setCheckState(status_flag)
+                if channel == "DAPI":
+                    ch_item.setCheckState(2)
                 self.channel_list.addItem(ch_item)
         elif check_status:
             channel_names = [f"C{str(i).zfill(2)}" for i in range(len(check_status))]
             for channel, status in zip(channel_names, check_status):
                 ch_item = QChannelItem(channel)
                 status_flag = 0 if status else 2
+                if channel == "DAPI":
+                    ch_item.setCheckState(2)
                 ch_item.setCheckState(status_flag)
                 self.channel_list.addItem(ch_item)
         else:
             for channel in channel_names:
                 ch_item = QChannelItem(channel)
                 ch_item.setCheckState(0)
+                if channel == "DAPI":
+                    ch_item.setCheckState(2)
                 self.channel_list.addItem(ch_item)
 
     def _ch_indices_to_status(self, channel_names: List[str], ch_indices: List[int]):
