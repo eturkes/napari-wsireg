@@ -20,6 +20,7 @@ class ProjectControl(QWidget):
         proj_entry_layout = QFormLayout()
 
         self.project_name_entry = QLineEdit()
+        self.project_name_entry.setText("wsireg-output")
         self.output_dir_select = QPushButton("Select output dir")
         self.output_dir_entry = QLineEdit()
         self.output_dir_entry.setReadOnly(True)
@@ -42,7 +43,7 @@ class ProjectControl(QWidget):
         self.cache_images_check.setChecked(True)
         self.write_images_check.setChecked(True)
 
-        proj_entry_layout.addRow("Set project name", self.project_name_entry)
+        proj_entry_layout.addRow("*Set project name", self.project_name_entry)
         proj_entry_layout.addRow(self.output_dir_select, self.output_dir_entry)
         proj_entry_layout.addRow("Write transformed images", self.write_images_check)
         proj_entry_layout.addRow("Image writer", self.image_writer)
